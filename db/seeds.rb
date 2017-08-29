@@ -8,17 +8,17 @@
 
 #  Console command to load ::  load "#{Rails.root}/db/seeds.rb"
 
-factory = Factory.create(name: 'aaa', city: 'pune')
-User::Manager::FactoryManager.create(name: 'maanav', age: 31, factory_id: factory.id, email: 'maanav@gmail.com', password: 'maanavshah')
-User::Manager::SalesManager.create(name: 'piyush', age: 21, factory_id: factory.id, email: 'piyush@gmail.com', password: 'piyushwani')
-User::Manager::InventoryManager.create(name: 'ankush', age: 14, factory_id: factory.id, email: 'ankush@gmail.com', password: 'ankushkhurrana')
-user = User::Buyer::Customer.new(name:'aadesh',age:21, email: 'aadesh@gmail.com', password: 'aadeshshah')
+factory = Factory.create(name: Faker::Company.name, city: Faker::GameOfThrones.city)
+User::Manager::FactoryManager.create(name: Faker::Name.name, age: 31, factory_id: factory.id, email: Faker::Internet.unique.email, password: '12345678')
+User::Manager::SalesManager.create(name: Faker::Name.name, age: 21, factory_id: factory.id, email: Faker::Internet.unique.email, password: '12345678')
+User::Manager::InventoryManager.create(name: Faker::Name.name, age: 14, factory_id: factory.id, email: Faker::Internet.unique.email, password: '12345678')
+user = User::Buyer::Customer.new(name: Faker::Name.name, age:21, email: Faker::Internet.unique.email, password: '12345678')
 user.factory = factory
 user.save
-User::Buyer::Shopkeeper.create(name: 'karan', age: 27, factory_id: factory.id, email: 'karan@gmail.com', password: 'karantongay')
-User::Buyer::Vendor.create(name: 'vikas', age: 47, factory_id: factory.id, email: 'vikas@gmail.com', password: 'vikasprasad')
-Product.create(name:'tango',price:125,capacity:100,available: true,factory_id: factory.id)
-Product.create(name:'clarity',price:50,capacity:100,available: true,factory_id: factory.id)
+User::Buyer::Shopkeeper.create(name: Faker::Name.name, age: 27, factory_id: factory.id, email: Faker::Internet.unique.email, password: '12345678')
+User::Buyer::Vendor.create(name: Faker::Name.name, age: 47, factory_id: factory.id, email: Faker::Internet.unique.email, password: '12345678')
+Product.create(name:Faker::Food.dish,price:125,capacity:100,available: true,factory_id: factory.id)
+Product.create(name:Faker::Food.dish,price:50,capacity:100,available: true,factory_id: factory.id)
 customer = User.find_by_type('User::Buyer::Customer')
 bill = InvoiceBill.new(total_price:175)
 bill.user = customer
