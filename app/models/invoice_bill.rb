@@ -1,0 +1,2 @@
+class InvoiceBill < ApplicationRecord
+end
