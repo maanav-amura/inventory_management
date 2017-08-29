@@ -12,14 +12,14 @@
 
 * Factory
 * User
- * Buyer
-   * Customer
-   * Shopkeeper
-   * Vendor
- * Manager
-  * FactoryManager
-  * InventoryManager
-  * SalesManager
+  * Buyer
+    * Customer
+    * Shopkeeper
+    * Vendor
+  * Manager
+    * FactoryManager
+    * InventoryManager
+    * SalesManager
 * Product
 * InvoiceBill
 * InvoiceDetail
