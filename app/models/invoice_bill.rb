@@ -1,2 +1,8 @@
 class InvoiceBill < ApplicationRecord
+  validates :total_price, numericality: true
+  validates :user_id, presence: true
+
+  has_many :invoice_details
+  has_many :products, through: :invoice_details
+  belongs_to :user
 end
