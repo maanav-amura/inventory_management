@@ -1,0 +1,10 @@
+Name : <%= f.text_field(:name) %><br>
+Price : <%= f.number_field(:price) %><br>
+Capacity : <%= f.number_field(:capacity) %><br>
+Available :
+<%= f.radio_button :available, 'Yes', :checked => true %>
+<%= label :available_true, 'Yes' %>
+<%= f.radio_button :available, 'No' %>
+<%= label :available_false, 'No' %><br>
+Factory : <br>
+<%= f.select(:factory_id, Factory.all.map{|f| [f.name, f.id]}) %><br><br>

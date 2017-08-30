@@ -1,0 +1,9 @@
+<h1>Products Show</h1>
+<br>
+<%= link_to('Back', :action=>'index')%>
+<br>
+
+Name : <%= @product.name %><br>
+Price : <%= @product.price %><br>
+Capacity : <%= @product.capacity %><br>
+Available : <%= @product.available ? 'Yes' : 'No' %><br>
