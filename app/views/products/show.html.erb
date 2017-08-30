@@ -3,7 +3,17 @@
 <%= link_to('Back', :action=>'index')%>
 <br>
 
-Name : <%= @product.name %><br>
-Price : <%= @product.price %><br>
-Capacity : <%= @product.capacity %><br>
-Available : <%= @product.available ? 'Yes' : 'No' %><br>
+<table class="table table-hover">
+  <tr>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Capacity</td>
+    <td>Available</td>
+  </tr>
+  <tr>
+    <td><%= @product.name %></td>
+    <td><%= @product.price %></td>
+    <td><%= @product.capacity %></td>
+    <td><%= @product.available ? 'Yes' : 'No' %></td>
+  </tr>
+</table>
