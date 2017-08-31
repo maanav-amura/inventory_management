@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#  Console command to load ::  load "#{Rails.root}/db/seeds.rb"
+
+require File.join(File.dirname(__FILE__),'..','lib','create_seeds')
+
+FactorySeed.seed
