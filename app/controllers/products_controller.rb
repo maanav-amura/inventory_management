@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.all_products
   end
 
   def show
@@ -51,6 +51,10 @@ class ProductsController < ApplicationController
     else
       render('delete')
     end
+  end
+
+  def purchase
+    @products = Product.available_products
   end
 
   private

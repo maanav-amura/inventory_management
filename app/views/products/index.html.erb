@@ -24,7 +24,7 @@
     </tr>
   <% @products.each do |p| %>
     <tr>
-      <td><%= p.name %></td>
+      <td><%= p.name.capitalize %></td>
       <td><%= p.price %></td>
       <td><%= p.capacity %></td>
       <td><%= p.available ? 'Yes' : 'No' %></td>
