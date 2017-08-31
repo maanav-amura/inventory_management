@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :products
+  resources :products do
+      get 'purchase', on: :collection
+  end
   devise_scope :user do
     root to: "devise/sessions#new"
   end

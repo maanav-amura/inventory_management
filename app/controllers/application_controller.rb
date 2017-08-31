@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     if resource.is_a?(User::Manager)
       stored_location_for(resource) || products_path
     else
-      stored_location_for(resource) || products_path
+      stored_location_for(resource) ||  purchase_products_path
     end
   end
 
