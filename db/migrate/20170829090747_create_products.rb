@@ -11,8 +11,8 @@ class CreateProducts < ActiveRecord::Migration[5.1]
     end
 
     create_table :products_users, id: false do |t|
-        t.references :manager
-        t.references :product
+      t.references :manager
+      t.references :product
     end
   end
 end
