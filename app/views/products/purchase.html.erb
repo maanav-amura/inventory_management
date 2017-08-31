@@ -11,21 +11,19 @@
 <% end %>
 <br>
 
-<%= link_to('Create Product', :action=>'new')%><br>
-  <table class="table table-hover">
-    <tr>
-      <td>Name</td>
-      <td>Price</td>
-      <td>Purchase</td>
-    </tr>
-    <%= form_for(:product, url: products_url) do |f| %>
-    <% @products.each do |p| %>
-    <tr>
-      <td><%= p.name.capitalize %></td>
-      <td><%= p.price %></td>
-      <td><input type="checkbox" id= <%= p.name %>></td>
-    </tr>
-    <% end %>
-    <tr><td><%= submit_tag('Purchase Product') %></td></tr>
+<%= link_to 'Create Product', action: 'new' %><br>
+<table class="table table-hover">
+  <tr>
+    <td>Name</td>
+    <td>Price</td>
+  </tr>
+  <% @products.each do |p| %>
+  <tr>
+    <td><%= p.name.capitalize %></td>
+    <td><%= p.price %></td>
+     <td><%= link_to 'Purchase', "/products/purchase/#{p.id}" %></td>
+  </tr>
   <% end %>
 </table>
+<% link_to 'Check Invoices', controller: 'invoice', action: 'index'
+

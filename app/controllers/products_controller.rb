@@ -55,6 +55,20 @@ class ProductsController < ApplicationController
 
   def purchase
     @products = Product.available_products
+    puts current_user.id, current_user.name
+  end
+
+  def confirm
+    @product = Product.where(id: params[:id]).first
+  end
+
+  def buy
+    @bill = InvoiceBill.new
+    @bill.user_id = current_user.id
+    @bill.total_price = Product.where(id: params[:id]).first.price
+    @bill.save
+    @bill.invoice_details << InvoiceDetail.new(product_id: params[:id])
+    redirect_to '/products/purchase'
   end
 
   private
