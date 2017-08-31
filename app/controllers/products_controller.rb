@@ -22,7 +22,6 @@ class ProductsController < ApplicationController
     end
   end
 
-
   def edit
     @product = Product.where(id: params[:id]).first
   end
@@ -47,7 +46,7 @@ class ProductsController < ApplicationController
     @product = Product.where(id: params[:id]).first
     if @product.destroy
       flash[:notice] = 'Product successfully deleted!'
-      redirect_to(:action => 'index')
+      redirect_to action: 'index'
     else
       render('delete')
     end
@@ -72,8 +71,8 @@ class ProductsController < ApplicationController
   end
 
   private
+
     def product_params
       params.require(:product).permit(:name,:price,:capacity,:available,:factory_id)
     end
-
 end

@@ -9,9 +9,22 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= value %>
+    <br>
+    <div align="right" style="margin-right: 40px">
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path)  %>
     <% end %>
-    <%= yield %>
+    </div>
+
+    <div align="center">
+
+      <% flash.each do |key, value| %>
+        <%= value %>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
