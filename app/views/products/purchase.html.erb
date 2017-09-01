@@ -11,7 +11,11 @@
     <td><%= p.name.capitalize %></td>
     <td><%= p.price %></td>
     <td><%= p.capacity %></td>
-     <td><%= link_to 'Purchase', "/products/#{p.id}/purchase" %></td>
+     <td><% if p.capacity==0 %>
+      <%= link_to 'Notify', "" %>
+     <% else %>
+      <%= link_to 'Purchase', "/products/#{p.id}/purchase" %>
+    <% end %></td>
   </tr>
   <% end %>
 </table>

@@ -78,7 +78,6 @@ class ProductsController < ApplicationController
       @bill.save
       @bill.invoice_details << InvoiceDetail.new(product_id: params[:id], quantity: invoice_quantity)
       @product.capacity -= invoice_quantity
-      @product.available = false if @product.capacity == 0
       @product.save
       flash[:notice] = 'Invoice Generated!'
     end
