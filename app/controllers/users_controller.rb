@@ -13,7 +13,7 @@ class UsersController < Devise::RegistrationsController
     end
     puts user.type
     user.save
-    flash[:notice] = "User Successfully created!"
+    flash[:notice] = 'User Successfully created!'
     redirect_to root_path
   end
 
