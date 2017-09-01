@@ -2,19 +2,24 @@ class UsersController < Devise::RegistrationsController
 
   def create
     build_resource(registration_params)
-    user =  sign_up(resource_name, resource)
-    case  params.require(:user).permit(:type)[:type]
+    # binding.pry
+    case params.require(:user).permit(:type)[:type]
     when 'Customer'
-      user.type = 'User::Buyer::Customer'
+      resource.type = 'User::Buyer::Customer'
     when 'Shopkeeper'
-      user.type = "User::Buyer::Shopkeeper"
+      resource.type = "User::Buyer::Shopkeeper"
     when 'Vendor'
-      user.type = "User::Buyer::Vendor"
+      resource.type = "User::Buyer::Vendor"
     end
-    puts user.type
-    user.save
-    flash[:notice] = 'User Successfully created!'
-    redirect_to root_path
+
+    if resource.valid?
+      sign_up(resource_name, resource)
+      flash[:notice] = 'User Successfully created!'
+      redirect_to root_path
+    else
+      flash[:notice] = resource.errors.full_messages.join(', ')
+      render 'new'
+    end
   end
 
   private
