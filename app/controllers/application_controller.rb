@@ -12,4 +12,28 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def customer?
+    current_user.is_a?(User::Buyer::Customer)
+  end
+
+  def shopkeeper?
+    current_user.is_a?(User::Buyer::Shopkeeper)
+  end
+
+  def vendor?
+    current_user.is_a?(User::Buyer::Vendor)
+  end
+
+  def factory_manager?
+    current_user.is_a?(User::Manager::FactoryManager)
+  end
+
+  def inventory_manager?
+    current_user.is_a?(User::Manager::InventoryManager)
+  end
+
+  def sales_manager?
+    current_user.is_a?(User::Manager::SalesManager)
+  end
+
 end

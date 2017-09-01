@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get 'purchase', on: :collection
   end
   get 'products/:id/purchase', to: 'products#confirm'
-  post 'products/:id', to: 'products#buy'
+  post 'products/:id', to: 'products#purchase_confirm'
   resources :invoices, only: [:index, :show]
   devise_scope :user do
     root to: "devise/sessions#new"

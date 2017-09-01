@@ -28,12 +28,13 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.where(id: params[:id]).first
-    p @product
     if @product.update_attributes(product_params)
-      flash[:notice] = "Product successfully updated!"
+      flash[:notice] = 'Product successfully updated!'
       redirect_to(products_url)
     else
-      flash[:notice] = @product.errors.full_messages.join(', ') if @product.errors.any?
+      if @product.errors.any?
+        flash[:notice] = @product.errors.full_messages.join(', ')
+      end
       render('edit')
     end
   end
@@ -61,13 +62,26 @@ class ProductsController < ApplicationController
     @product = Product.where(id: params[:id]).first
   end
 
-  def buy
+  def purchase_confirm
     @bill = InvoiceBill.new
     @bill.user_id = current_user.id
-    @bill.total_price = Product.where(id: params[:id]).first.price
-    @bill.save
-    invoice_quantity = params[:invoice_detail]
-    @bill.invoice_details << InvoiceDetail.new(product_id: params[:id], quantity: invoice_quantity['quantity'])
+    invoice_quantity = params[:invoice_detail]['quantity'].to_i
+    @product = Product.where(id: params[:id]).first
+    @bill.total_price = @product.price * invoice_quantity
+    if customer? && invoice_quantity.to_i >= 10
+      flash[:notice] = 'Quantity must be less than 10 for user!'
+    elsif (shopkeeper? || vendor?) && (invoice_quantity % 10) != 0
+      flash[:notice] = 'Quantity must be a multiple of 10!'
+    elsif @product.capacity < invoice_quantity
+      flash[:notice] = 'Product quantity not available'
+    else
+      @bill.save
+      @bill.invoice_details << InvoiceDetail.new(product_id: params[:id], quantity: invoice_quantity)
+      @product.capacity -= invoice_quantity
+      @product.available = false if @product.capacity == 0
+      @product.save
+      flash[:notice] = 'Invoice Generated!'
+    end
     redirect_to '/products/purchase'
   end
 

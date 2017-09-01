@@ -10,6 +10,7 @@ class InvoicesController < ApplicationController
     @quantity = @detail.quantity
     @product = Product.where(id: @detail.product_id).first
     @name = @product.name
-    @price = @product.price
+    @price = @product.price.to_i * @detail.quantity.to_i
   end
+
 end
