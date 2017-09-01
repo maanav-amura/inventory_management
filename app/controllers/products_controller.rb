@@ -68,7 +68,7 @@ class ProductsController < ApplicationController
     invoice_quantity = params[:invoice_detail]['quantity'].to_i
     @product = Product.where(id: params[:id]).first
     @bill.total_price = @product.price * invoice_quantity
-    if customer? && invoice_quantity.to_i >= 10
+    if customer? && invoice_quantity.to_i > 10
       flash[:notice] = 'Quantity must be less than 10 for user!'
     elsif (shopkeeper? || vendor?) && (invoice_quantity % 10) != 0
       flash[:notice] = 'Quantity must be a multiple of 10!'

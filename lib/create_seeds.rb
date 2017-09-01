@@ -3,9 +3,7 @@ class FactorySeed
     factory = create_factory
     create_managers(factory.id)
     create_buyers(factory.id)
-    products = create_products
-    create_invoice_bills(products)
-    create_products_managers(products.sample)
+    products = create_products(factory.id)
   end
 end
 
@@ -29,19 +27,4 @@ def create_products factory_id
   Product.create(name:'tango',price:125,capacity:100,available: true,factory_id: factory_id)
   Product.create(name:'clarity',price:50,capacity:100,available: true,factory_id: factory_id)
   Product.all
-end
-
-def create_invoice_bills product
-  customer = User.find_by_type('User::Buyer::Customer')
-  bill = InvoiceBill.new(total_price: 175)
-  bill.user = customer
-  bill.save
-  product.each {|p|  bill.invoice_details << InvoiceDetail.new(product_id: p.id, quantity: 1) }
-  bill.products
-  bill.invoice_details
-end
-
-def create_products_managers product
-  user = User.find_by_type('User::Manager::InventoryManager')
-  user.products << product
 end

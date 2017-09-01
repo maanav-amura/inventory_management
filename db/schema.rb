@@ -48,13 +48,6 @@ ActiveRecord::Schema.define(version: 20170829090822) do
     t.index ["factory_id"], name: "index_products_on_factory_id"
   end
 
-  create_table "products_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.bigint "manager_id"
-    t.bigint "product_id"
-    t.index ["manager_id"], name: "index_products_users_on_manager_id"
-    t.index ["product_id"], name: "index_products_users_on_product_id"
-  end
-
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.integer "age"

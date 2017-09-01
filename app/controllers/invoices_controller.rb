@@ -4,8 +4,8 @@ class InvoicesController < ApplicationController
       @bills = InvoiceBill.all.where(user_id: current_user.id)
     else
       @bills = InvoiceBill.sort_by_price
-      @products = @bills.map { |b| Product.find(InvoiceDetail.find_by_invoice_bill_id(b.id).product_id).name }
     end
+    @products = @bills.map { |b| Product.find(InvoiceDetail.find_by_invoice_bill_id(b.id).product_id).name }
   end
 
   def show
