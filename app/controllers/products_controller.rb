@@ -55,7 +55,6 @@ class ProductsController < ApplicationController
 
   def purchase
     @products = Product.available_products
-    puts current_user.id, current_user.name
   end
 
   def confirm

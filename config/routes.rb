@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'users' }
   resources :products do
     get 'purchase', on: :collection
   end

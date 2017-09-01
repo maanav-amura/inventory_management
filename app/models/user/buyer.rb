@@ -1,5 +1,5 @@
 class User::Buyer < User
   def self.types
-    %w[Customer Shopkeeper vendor]
+    %w[Customer Shopkeeper Vendor]
   end
 end
