@@ -3,12 +3,14 @@
   <tr>
     <th>Name</th>
     <th>Price</th>
+    <th>Available</th>
     <th>Purchase Link</th>
   </tr>
   <% @products.each do |p| %>
   <tr>
     <td><%= p.name.capitalize %></td>
     <td><%= p.price %></td>
+    <td><%= p.capacity %></td>
      <td><%= link_to 'Purchase', "/products/#{p.id}/purchase" %></td>
   </tr>
   <% end %>

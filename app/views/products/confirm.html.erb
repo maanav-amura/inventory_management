@@ -1,5 +1,6 @@
 <h1>Confirm Purchase</h1>
 <br>
+<%= form_for :invoice_detail, url: {action: "buy"}, method: :post do |f| %>
 <table class="table table-hover" style="width:60%">
   <tr>
     <th>Name</th>
@@ -9,9 +10,10 @@
   <tr>
     <td><%= @product.name.capitalize %></td>
     <td><%= @product.price %></td>
-    <td><%= 1 %></td>
+    <td><%= f.text_field :quantity %></td>
   </tr>
 </table>
-<%= button_to "Purchase", @product, method: :post %>
 <br>
+<%= f.submit "Create" %>
+<% end %>
 <%= link_to('Back', :action=>'purchase')%>

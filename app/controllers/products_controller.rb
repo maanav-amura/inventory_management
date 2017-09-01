@@ -66,7 +66,8 @@ class ProductsController < ApplicationController
     @bill.user_id = current_user.id
     @bill.total_price = Product.where(id: params[:id]).first.price
     @bill.save
-    @bill.invoice_details << InvoiceDetail.new(product_id: params[:id])
+    invoice_quantity = params[:invoice_detail]
+    @bill.invoice_details << InvoiceDetail.new(product_id: params[:id], quantity: invoice_quantity['quantity'])
     redirect_to '/products/purchase'
   end
 
