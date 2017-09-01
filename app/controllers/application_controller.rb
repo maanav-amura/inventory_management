@@ -24,16 +24,7 @@ class ApplicationController < ActionController::Base
     current_user.is_a?(User::Buyer::Vendor)
   end
 
-  def factory_manager?
-    current_user.is_a?(User::Manager::FactoryManager)
+  def manager?
+    current_user.is_a?(User::Manager)
   end
-
-  def inventory_manager?
-    current_user.is_a?(User::Manager::InventoryManager)
-  end
-
-  def sales_manager?
-    current_user.is_a?(User::Manager::SalesManager)
-  end
-
 end

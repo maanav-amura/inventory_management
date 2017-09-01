@@ -1,6 +1,11 @@
 class InvoicesController < ApplicationController
   def index
-    @bills = InvoiceBill.all.where(user_id: current_user.id)
+    unless manager?
+      @bills = InvoiceBill.all.where(user_id: current_user.id)
+    else
+      @bills = InvoiceBill.sort_by_price
+      @products = @bills.map { |b| Product.find(InvoiceDetail.find_by_invoice_bill_id(b.id).product_id).name }
+    end
   end
 
   def show
