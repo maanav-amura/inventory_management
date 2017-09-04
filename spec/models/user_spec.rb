@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
+RSpec.describe User, type: :model do
   describe 'valid users' do
-    let(:user) { User.new(name:'ayush', age: 21, factory_id:  Factory.first.id , email: 'ayush@gmail.com', password: 'ayushbillore') }
+    let(:user) { User.new(name: 'ayush', age: 21, factory_id: Factory.first.id,
+      email: 'ayush@gmail.com', password: 'ayushbillore') }
 
     describe 'Associations' do
       it { should have_many(:invoice_bills) }
@@ -52,8 +53,6 @@ RSpec.describe User, :type => :model do
     describe User.new(name: 'ayush') do
       it { is_expected.to have_attributes(name: 'ayush') }
     end
-
-
   end
 
   describe 'invalid users' do
@@ -65,7 +64,7 @@ RSpec.describe User, :type => :model do
       expect(@user).to_not be_valid
     end
 
-    it 'is not valid without a valid name'   do
+    it 'is not valid without a valid name' do
       expect(@user).to_not be_valid
     end
 
@@ -87,6 +86,5 @@ RSpec.describe User, :type => :model do
     describe @user do
       it { is_expected.to_not have_attributes(name: 'ayush') }
     end
-
   end
 end
