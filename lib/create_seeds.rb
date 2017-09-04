@@ -25,9 +25,9 @@ def create_buyers factory_id
   User::Buyer::Vendor.create(name: 'vikas',age: 47,factory_id: factory_id,email: 'vikas@gmail.com',password: 'vikasprasad')
 end
 
-def create_products
-  Product.create(name:'tango',price:125,capacity:100,available: true,factory_id: Factory.first.id)
-  Product.create(name:'clarity',price:50,capacity:100,available: true,factory_id: Factory.first.id)
+def create_products factory_id
+  Product.create(name:'tango',price:125,capacity:100,available: true,factory_id: factory_id)
+  Product.create(name:'clarity',price:50,capacity:100,available: true,factory_id: factory_id)
   Product.all
 end
 
