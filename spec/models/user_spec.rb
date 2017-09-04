@@ -49,6 +49,11 @@ RSpec.describe User, :type => :model do
       expect(assc.macro).to eq :belongs_to
     end
 
+    describe User.new(name: 'ayush') do
+      it { is_expected.to have_attributes(name: 'ayush') }
+    end
+
+
   end
 
   describe 'invalid users' do
