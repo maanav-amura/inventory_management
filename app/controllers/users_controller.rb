@@ -2,7 +2,6 @@ class UsersController < Devise::RegistrationsController
 
   def create
     build_resource(registration_params)
-    # binding.pry
     case params.require(:user).permit(:type)[:type]
     when 'Customer'
       resource.type = 'User::Buyer::Customer'
@@ -11,7 +10,6 @@ class UsersController < Devise::RegistrationsController
     when 'Vendor'
       resource.type = "User::Buyer::Vendor"
     end
-
     if resource.valid?
       sign_up(resource_name, resource)
       flash[:notice] = 'User Successfully created!'

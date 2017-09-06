@@ -31,18 +31,21 @@ gem 'turbolinks', '~> 5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'
-gem 'faker'
-gem 'pry-rails', :group => :development
-gem 'shoulda'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.5'
+  gem 'pry-rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
+  gem 'simplecov'#, :require => false# , :group => :test
+  gem 'devise'
+  gem 'faker'
+  gem 'shoulda'
 end
 
 group :development do
