@@ -45,6 +45,20 @@ RSpec.describe User, type: :model do
       expect(assc.macro).to eq :has_many
     end
 
+    it 'is not valid if its name not a String' do
+      expect(user.name.class).to match(String)
+    end
+
+    it 'is not valid if its age not an Integer' do
+      expect(user.age.class).to match(Integer)
+    end
+    it 'is not valid if its emai not a String' do
+      expect(user.email.class).to match(String)
+    end
+    it 'is not valid if its password not a String' do
+      expect(user.password.class).to match(String)
+    end
+
     it 'should belong to a Factory' do
       assc = User.reflect_on_association(:factory)
       expect(assc.macro).to eq :belongs_to

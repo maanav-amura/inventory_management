@@ -23,7 +23,7 @@ RSpec.describe InvoiceBill, type: :model do
       expect(invoice_bill.instance_of?(InvoiceBill)).to be
     end
 
-    it 'is not valid if its price is non-numeric' do
+    it 'is not valid if its price is not numeric' do
       expect(invoice_bill.total_price.class).to match(Integer)
     end
   end

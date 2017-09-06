@@ -29,6 +29,14 @@ RSpec.describe Product, type: :model do
     it 'is not valid if its name not a String' do
       expect(product.name.class).to match(String)
     end
+
+    it 'is not valid if its capacity not an Integer' do
+      expect(product.capacity.class).to match(Integer)
+    end
+
+    it 'is not valid if its price not an Integer' do
+      expect(product.price.class).to match(Integer)
+    end
   end
 
   describe 'invalid products' do
@@ -43,10 +51,6 @@ RSpec.describe Product, type: :model do
 
     it 'is not valid if it is not an instance of Factory' do
       expect(product.instance_of?(User)).to_not be
-    end
-
-    it 'is not valid if its name not a String' do
-      expect(product.name.class).to_not be(Integer)
     end
   end
 end

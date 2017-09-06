@@ -25,7 +25,7 @@ RSpec.describe InvoiceDetail, type: :model do
       expect(invoice_detail.instance_of?(InvoiceDetail)).to be
     end
 
-    it 'is not valid if its quantity is non-numeric' do
+    it 'is not valid if its quantity is not numeric' do
       expect(invoice_detail.quantity.class).to match(Integer)
     end
   end
@@ -47,6 +47,5 @@ RSpec.describe InvoiceDetail, type: :model do
       invoice_detail.quantity = ''
       expect(invoice_detail.quantity.class).to_not match(Integer)
     end
-
   end
 end

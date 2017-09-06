@@ -40,11 +40,5 @@ RSpec.describe Factory, type: :model do
       factory = User.new
       expect(factory.instance_of?(Factory)).to_not be
     end
-
-    it 'is not valid if its name not a String' do
-      factory.name = 123
-      expect(factory.name.class).to be(String)
-    end
-
   end
 end
