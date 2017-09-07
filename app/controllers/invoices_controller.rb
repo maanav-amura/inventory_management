@@ -1,4 +1,6 @@
 class InvoicesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     unless manager?
       @bills = InvoiceBill.all.where(user_id: current_user.id)
