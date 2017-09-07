@@ -47,3 +47,5 @@ _one-to_many_
 _many-to_many_
 * Manager - Product
 * InvoiceBill - Product, through => InvoiceDetail
+
+Bootstrap :: https://stackoverflow.com/questions/18371318/installing-bootstrap-3-on-rails-app
