@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true
-  validates :age, numericality: true
+  validates :age, numericality: { greater_than: 0, less_than_or_equal_to: 99 }
 
   has_many :invoice_bills
   belongs_to :factory
