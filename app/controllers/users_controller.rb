@@ -1,17 +1,8 @@
 class UsersController < Devise::RegistrationsController
+  before_action :authenticate_user!
 
   def create
     build_resource(registration_params)
-    # binding.pry
-    case params.require(:user).permit(:type)[:type]
-    when 'Customer'
-      resource.type = 'User::Buyer::Customer'
-    when 'Shopkeeper'
-      resource.type = "User::Buyer::Shopkeeper"
-    when 'Vendor'
-      resource.type = "User::Buyer::Vendor"
-    end
-
     if resource.valid?
       sign_up(resource_name, resource)
       flash[:notice] = 'User Successfully created!'
@@ -25,6 +16,6 @@ class UsersController < Devise::RegistrationsController
   private
 
   def registration_params
-    params.require(:user).permit(:name, :age, :factory_id, :email, :password)
+    params.require(:user).permit(:name, :age, :type, :factory_id, :email, :password)
   end
 end

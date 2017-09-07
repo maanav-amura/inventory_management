@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :type %><br />
-    <%= f.select :type, User::Buyer.types.collect { |b| [b, b] } %>
+    <%= f.select :type, options_for_select({'Customer': 'User::Buyer::Customer', 'Shopkeeper': 'User::Buyer::Shopkeeper', 'Vendor': 'User::Buyer::Vendor'}) %>
   </div>
 
   <div class="field">
@@ -34,13 +34,7 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off"%>
-
   </div>
-
-  <!-- <div class="field">
-    <%#= f.label :password_confirmation %><br />
-    <%#= f.password_field :password_confirmation, autocomplete: "off", required: %>
-  </div> -->
 
   <div class="actions">
     <%= f.submit "Sign up" %>
