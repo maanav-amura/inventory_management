@@ -61,19 +61,19 @@ class ProductsController < ApplicationController
   def purchase_confirm
     @bill = InvoiceBill.new
     @bill.user_id = current_user.id
-    invoice_quantity = params[:invoice_detail]['quantity'].to_i
+    @quantity = params[:product_detail]['quantity'].to_i
     @product = Product.where(id: params[:id]).first
-    @bill.total_price = @product.price * invoice_quantity
-    if customer? && invoice_quantity.to_i > 10
+    @bill.total_price = @product.price * @quantity
+    if customer? && @quantity.to_i > 10
       flash[:notice] = 'Quantity must be less than 10 for user!'
-    elsif (shopkeeper? || vendor?) && (invoice_quantity % 10) != 0
+    elsif (shopkeeper? || vendor?) && (@quantity % 10) != 0
       flash[:notice] = 'Quantity must be a multiple of 10!'
-    elsif @product.capacity < invoice_quantity
+    elsif @product.capacity < @quantity
       flash[:notice] = 'Product quantity not available'
     else
       @bill.save
-      @bill.invoice_details << InvoiceDetail.new(product_id: params[:id], quantity: invoice_quantity)
-      @product.capacity -= invoice_quantity
+      @bill.product_details << ProductDetail.new(product_id: @product.id, name: @product.name,quantity: @quantity)
+      @product.capacity -= @quantity
       @product.save
       flash[:notice] = 'Invoice Generated!'
     end

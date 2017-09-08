@@ -11,7 +11,7 @@
     <tr>
       <td><%= b.id %></td>
       <td><%= b.total_price %></td>
-      <td><%= @products[index].capitalize %></td>
+      <td><%= b.product_details.map {|product| product.name.capitalize }.join %></td>
       <td><%= link_to 'Show', invoice_path(b.id) %></td>
     </tr>
   <% end %>
