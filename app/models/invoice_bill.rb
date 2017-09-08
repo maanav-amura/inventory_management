@@ -1,10 +1,11 @@
-class InvoiceBill < ApplicationRecord
-  validates :total_price, numericality: true
-  validates :user_id, presence: true
+class InvoiceBill
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  has_many :invoice_details
-  has_many :products, through: :invoice_details
+  field :total_price, type: Integer
+
+  embeds_many :product_details
   belongs_to :user
 
-  scope :sort_by_price, -> { order('total_price DESC') }
+  validates :total_price, numericality: true
 end
