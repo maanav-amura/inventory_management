@@ -4,7 +4,7 @@
     <th>Name</th>
     <th>Price</th>
     <th>Available</th>
-  </tr>
+  </tr> q
   <% @products.each do |p| %>
   <tr>
     <td><%= p.name.capitalize %></td>
@@ -13,7 +13,7 @@
      <td><% if p.capacity==0 %>
       <%= link_to 'Notify', "" %>
      <% else %>
-      <%= link_to 'Purchase', "/products/#{p.id}/purchase" %>
+      <%= link_to 'Purchase', confirm_product_path(p.id) %>
     <% end %></td>
   </tr>
   <% end %>
