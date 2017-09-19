@@ -11,11 +11,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    # @product = Product.where(id: params[:id]).first
-    # respond_to do |format|
-    #   format.json { render json: @product }
-    #   format.html { render 'show' }
-    # end
     @product = Product.where(id: params[:id]).first
     respond_to do |format|
       format.json { render json: @product }
@@ -95,7 +90,7 @@ class ProductsController < ApplicationController
 
   private
 
-    def product_params
-      params.require(:product).permit(:name,:price,:capacity,:available,:factory_id)
-    end
+  def product_params
+    params.require(:product).permit(:name,:price,:capacity,:available,:factory_id)
+  end
 end
