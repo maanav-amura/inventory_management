@@ -10,12 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require main.js
-//= require underscore.js
-//= require jquery-3.2.1.js
-//= require backbone.js
-//= require backbone.marionette.js
+//= require jquery-3.2.1
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap.min
+//= require underscore
+//= require backbone
+//= require backbone.marionette
+//= require main
+//= require_tree .
