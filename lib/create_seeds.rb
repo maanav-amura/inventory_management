@@ -3,7 +3,7 @@ class FactorySeed
     factory = create_factory
     create_managers(factory.id)
     create_buyers(factory.id)
-    products = create_products(factory.id)
+    create_products(factory.id)
   end
 end
 
