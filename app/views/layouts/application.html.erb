@@ -18,6 +18,10 @@
     <% end %>
     </div>
 
+    <div id="user_type" data-id='<% if current_user.is_a?(User::Manager::FactoryManager) %>FactoryManager<% elsif current_user.is_a?(User::Manager::InventoryManager) %>InventoryManager<% elsif current_user.is_a?(User::Manager::SalesManager) %>SalesManager<% else %>Buyer<% end %>'>
+    </div>
+
+
     <div align="center">
 
       <% flash.each do |key, value| %>
