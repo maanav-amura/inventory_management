@@ -17,5 +17,10 @@
 //= require underscore
 //= require backbone
 //= require backbone.marionette
+//= require_tree ../templates
 //= require main
+//= require_directory ./marionette/controllers
+//= require_directory ./marionette/routes
+//= require_directory ./marionette/views
+//= require_directory ./backbone_defaults/models
 //= require_tree .

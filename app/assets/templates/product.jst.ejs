@@ -1,0 +1,21 @@
+<h1>Listing Products</h1>
+<table class="table table-hover" style="width: 60%">
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Capacity</th>
+      <th>Available</th>
+      <th>Show</th>
+      <th>Edit</th>
+    </tr>
+    <% _.each(products, function(product){ %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.capacity %></td>
+        <td><%= product.available %></td>
+      </tr>
+    <% }) %>
+  </table>
+</div>

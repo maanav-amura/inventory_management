@@ -2,11 +2,7 @@ class InvoicesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    unless manager?
-      @bills = InvoiceBill.all.where(user_id: current_user.id)
-    else
-      @bills = InvoiceBill.all
-    end
+    @bills = manager? ? InvoiceBill.all : InvoiceBill.all.where(user_id: current_user.id)
   end
 
   def show
