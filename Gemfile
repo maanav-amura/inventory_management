@@ -32,6 +32,7 @@ gem 'turbolinks', '~> 5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'ejs'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

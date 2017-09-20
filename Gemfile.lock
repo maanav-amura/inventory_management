@@ -65,6 +65,7 @@ GEM
       responders
       warden (~> 1.2.3)
     docile (1.1.5)
+    ejs (1.1.1)
     erubi (1.6.1)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -204,6 +205,7 @@ DEPENDENCIES
   cancancan (~> 2.0)
   capybara (~> 2.13)
   devise
+  ejs
   factory_girl_rails
   faker
   listen (>= 3.0.5, < 3.2)
