@@ -1,10 +1,10 @@
 var ProductController = Marionette.Controller.extend({
     index: function() {
     console.log('index');
-    var products = new App.Models.Product();
+    var products = new App.Collections.Products();
     products.fetch().done(function() {
       console.log($('#user_type').data('id'));
-      var product_view = new ProductIndexLayout({model: products});
+      var product_view = new ProductCollection({collection: products});
       $('body').html(product_view.render().$el);
       // product_view.showChildView('list',new ProductIndex( {model: products} ) ); // on attach
     });

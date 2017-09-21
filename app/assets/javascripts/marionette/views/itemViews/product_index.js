@@ -18,7 +18,6 @@ var ProductIndex = Marionette.ItemView.extend({
   },
   productRemove: function(e) {
     $('#' + $(e.currentTarget).data("id")).remove();
-         //  debugger
     $.ajax({
       url: `products/${$(e.currentTarget).data("id")}`,
       type: 'DELETE',
@@ -43,4 +42,3 @@ var ProductIndex = Marionette.ItemView.extend({
     console.log('on attach')
   }
 });
-

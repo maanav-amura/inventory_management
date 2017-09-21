@@ -1,25 +1,14 @@
 <h1>Listing Products</h1>
 <table class="table table-hover" style="width: 60%">
   <table class="table">
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Capacity</th>
-      <th>Available</th>
-      <th>Show</th>
-      <th>Edit</th>
-      <th>Remove</th>
-    </tr>
-    <% _.each(products, function(product){ %>
-      <tr id='<%= product._id %>'>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.capacity %></td>
-        <td><%= product.available %></td>
-        <td><a class='show' data-id='<%= product._id %>'>Show</div></td>
-        <td><a class="edit" data-id='<%= product._id %>'>Edit</div></td>
-        <td><a class="remove" data-id='<%= product._id %>'>Remove</div></td>
+      <tr>
+        <td><%= products.name %></td>
+        <td><%= products.price %></td>
+        <td><%= products.capacity %></td>
+        <td><%= products.available %></td>
+        <td><a class='show' data-id='<%= products._id %>'>Show</div></td>
+        <td><a class="edit" data-id='<%= products._id %>'>Edit</div></td>
+        <td><a class="remove" data-id='<%= products._id %>'>Remove</div></td>
       </tr>
-    <% }) %>
   </table>
 </div>
