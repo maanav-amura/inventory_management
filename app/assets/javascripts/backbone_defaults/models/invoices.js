@@ -3,11 +3,6 @@ App.Models.Invoice = Backbone.Model.extend({
   initialize: function() {
     this.on('change',this.someChange,this)
   },
-  defaults : {
-    user_id : 'not defined',
-    total_price : 0,
-    product_details : []
-  },
   someChange: function(model,options){
     alert('Invoice is changed!');
   }

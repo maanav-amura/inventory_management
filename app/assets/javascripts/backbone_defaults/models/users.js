@@ -3,13 +3,6 @@ App.Models.User = Backbone.Model.extend({
   initialize: function() {
     this.on('change',this.someChange,this)
   },
-  defaults : {
-    name : 'undefined',
-    age : 0,
-    type : 'undefined',
-    email : 'undefined',
-    password : 'undefined'
-  },
   someChange: function(model,options){
     alert('User is changed!');
   }
