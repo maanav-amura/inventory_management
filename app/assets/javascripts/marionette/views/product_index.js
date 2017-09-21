@@ -4,7 +4,7 @@ var ProductIndex = Marionette.ItemView.extend({
     'click .edit' : 'productEdit',
     'click .remove': 'productRemove'
   },
-  template: JST['product'],
+  template: JST['product_index'],
   serializeData: function() {
     return {
       'products' : this.model.attributes
@@ -30,6 +30,9 @@ var ProductIndex = Marionette.ItemView.extend({
   },
   onDestroy: function() {
     console.log('on destroy');
+  },
+  onAttach: function() {
+    console.log('on attach')
   }
 });
 

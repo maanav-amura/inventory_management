@@ -3,10 +3,11 @@ var ProductController = Marionette.Controller.extend({
     console.log('index');
     var products = new App.Models.Product();
     products.fetch().done(function() {
-      alert($('#user_type').data('id'));
-      var product_view = new ProductIndex({model: products});
+      console.log($('#user_type').data('id'));
+      var product_view = new ProductIndexLayout({model: products});
       $('body').html(product_view.render().$el);
-    })
+      // product_view.showChildView('list',new ProductIndex( {model: products} ) ); // on attach
+    });
   },
   show: function() { console.log('show'); },
   new: function() { console.log('new') },
