@@ -54,7 +54,11 @@ class ProductsController < ApplicationController
     @product = Product.where(id: params[:id]).first
     if @product.destroy
       flash[:notice] = 'Product successfully deleted!'
-      redirect_to action: 'index'
+      respond_to do |format|
+        format.json { render json: 'deleted' }
+        format.html
+      end
+      # redirect_to action: 'index'
     end
   end
 

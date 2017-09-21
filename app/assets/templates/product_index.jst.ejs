@@ -11,7 +11,7 @@
       <th>Remove</th>
     </tr>
     <% _.each(products, function(product){ %>
-      <tr>
+      <tr id='<%= product._id %>'>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td><%= product.capacity %></td>

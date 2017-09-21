@@ -17,7 +17,15 @@ var ProductIndex = Marionette.ItemView.extend({
     Backbone.history.navigate(`products/${$(e.currentTarget).data("id")}/edit`, {trigger: true, replace: true});
   },
   productRemove: function(e) {
-    Backbone.history.navigate(`products/${$(e.currentTarget).data("id")}`, {trigger: true, replace: true});
+    $('#' + $(e.currentTarget).data("id")).remove();
+         //  debugger
+    $.ajax({
+      url: `products/${$(e.currentTarget).data("id")}`,
+      type: 'DELETE',
+      success: function(result) {
+        Backbone.history.navigate('products', {trigger: true});
+      }
+    });
   },
   onBeforeRender: function() {
     console.log('before render');

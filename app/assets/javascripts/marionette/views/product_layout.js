@@ -4,6 +4,6 @@ var ProductIndexLayout= Marionette.LayoutView.extend({
     list: '.list'
   },
   onRender: function() {
-    this.showChildView('list',new ProductIndex( {model: this.model} ) );
+    this.showChildView('list',new ProductIndex({ model: this.model }));
   }
 });
