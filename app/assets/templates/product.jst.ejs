@@ -8,6 +8,7 @@
       <th>Available</th>
       <th>Show</th>
       <th>Edit</th>
+      <th>Remove</th>
     </tr>
     <% _.each(products, function(product){ %>
       <tr>
@@ -15,6 +16,9 @@
         <td><%= product.price %></td>
         <td><%= product.capacity %></td>
         <td><%= product.available %></td>
+        <td><a class='show' data-id='<%= product._id %>'>Show</div></td>
+        <td><a class="edit" data-id='<%= product._id %>'>Edit</div></td>
+        <td><a class="remove" data-id='<%= product._id %>'>Remove</div></td>
       </tr>
     <% }) %>
   </table>

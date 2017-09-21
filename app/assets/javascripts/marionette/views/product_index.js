@@ -1,8 +1,35 @@
 var ProductIndex = Marionette.ItemView.extend({
+  events: {
+    'click .show': 'productShow',
+    'click .edit' : 'productEdit',
+    'click .remove': 'productRemove'
+  },
   template: JST['product'],
   serializeData: function() {
     return {
       'products' : this.model.attributes
     }
+  },
+  productShow: function(e) {
+    Backbone.history.navigate(`products/${$(e.currentTarget).data("id")}`, {trigger: true, replace: true});
+  },
+    productEdit: function(e) {
+    Backbone.history.navigate(`products/${$(e.currentTarget).data("id")}/edit`, {trigger: true, replace: true});
+  },
+  productRemove: function(e) {
+    Backbone.history.navigate(`products/${$(e.currentTarget).data("id")}`, {trigger: true, replace: true});
+  },
+  onBeforeRender: function() {
+    console.log('before render');
+  },
+  onRender: function() {
+    console.log('on render');
+  },
+  onBeforeDestroy: function() {
+    console.log('before destroy');
+  },
+  onDestroy: function() {
+    console.log('on destroy');
   }
 });
+
