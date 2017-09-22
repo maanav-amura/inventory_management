@@ -4,7 +4,7 @@ var ProductController = Marionette.Controller.extend({
     var products = new App.Collections.Products();
     products.fetch().done(function() {
       console.log($('#user_type').data('id'));
-      var product_view = new ProductCollection({collection: products});
+      var product_view = new ProductIndexLayout({collection: products});
       $('body').html(product_view.render().$el);
       // product_view.showChildView('list',new ProductIndex( {model: products} ) ); // on attach
     });

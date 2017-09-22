@@ -22,6 +22,7 @@
 //= require_directory ./marionette/views/layoutViews
 //= require_directory ./marionette/views/itemViews
 //= require_directory ./marionette/views/collectionViews
+//= require_directory ./marionette/views/compositeViews
 //= require_directory ./marionette/controllers
 //= require_directory ./marionette/routes
 //= require_directory ./backbone_defaults/models

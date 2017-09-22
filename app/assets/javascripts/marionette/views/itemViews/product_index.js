@@ -1,4 +1,5 @@
 var ProductIndex = Marionette.ItemView.extend({
+  tagName: 'tr',
   events: {
     'click .show': 'productShow',
     'click .edit' : 'productEdit',
