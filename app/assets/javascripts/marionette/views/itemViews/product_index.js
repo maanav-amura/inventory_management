@@ -18,9 +18,9 @@ var ProductIndex = Marionette.ItemView.extend({
     Backbone.history.navigate(`products/${$(e.currentTarget).data("id")}/edit`, {trigger: true, replace: true});
   },
   productRemove: function(e) {
-    $('#' + $(e.currentTarget).data("id")).remove();
+    this.model.destroy();
     $.ajax({
-      url: `products/${$(e.currentTarget).data("id")}`,
+      url: `products/${this.model.attributes._id}`,
       type: 'DELETE',
       success: function(result) {
         Backbone.history.navigate('products', {trigger: true});
