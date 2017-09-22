@@ -5,7 +5,6 @@ var ProductIndexLayout= Marionette.LayoutView.extend({
   },
   onRender: function() {
     this.showChildView('list',new ProductComposite({ collection: this.collection } ));// Passing Collection in Composite View
-    // this.showChildView('list',new ProductCollection({ model: this.model } ));// Passing Model in Collection View
-
+    // this.showChildView('list',new ProductCollection({ collection: this.collection } ));// Passing Model in Collection View
   }
 });
