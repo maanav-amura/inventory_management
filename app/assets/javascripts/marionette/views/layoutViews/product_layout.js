@@ -6,9 +6,9 @@ var ProductLayout= Marionette.LayoutView.extend({
 
   onRender: function() {
     // Passing collection and rendering in Composite View
-    this.showChildView('list',new ProductComposite({ collection: this.collection } ));
+    // this.showChildView('list',new ProductList({ collection: this.collection } ));
 
     // Passing collection and rendering in Collection View
-    // this.showChildView('list',new ProductCollection({ collection: this.collection } ));
+    this.showChildView('list',new ProductCollection({ collection: this.collection } ));
   }
 });
