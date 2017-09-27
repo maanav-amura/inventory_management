@@ -1,13 +1,4 @@
-App.Models.Invoice = Backbone.Model.extend({
-  urlRoot: '/invoices',
-  initialize: function() {
-    this.on('change',this.someChange,this)
-  },
-  someChange: function(model,options){
-    alert('Invoice is changed!');
-  }
-});
-
+// Collections for Invoices with Model Invoice
 App.Collections.Invoices = Backbone.Collection.extend({
   model: App.Models.Invoice,
   url: '/invoices',
@@ -16,7 +7,7 @@ App.Collections.Invoices = Backbone.Collection.extend({
     this.on('change',this.changeInvoice,this);
   },
   addInvoice : function(model) {
-    alert('welcome '+ model.get('user_id'));
+    alert(model.get('user_id'));
   },
   changeInvoice : function() {
     alert('Invoices are changed!');

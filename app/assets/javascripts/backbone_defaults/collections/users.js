@@ -1,13 +1,4 @@
-App.Models.User = Backbone.Model.extend({
-  urlRoot: '/users',
-  initialize: function() {
-    this.on('change',this.someChange,this)
-  },
-  someChange: function(model,options){
-    alert('User is changed!');
-  }
-});
-
+// Collections for Users with Model User
 App.Collections.Users = Backbone.Collection.extend({
   model: App.Models.User,
   url: '/users',
@@ -16,7 +7,7 @@ App.Collections.Users = Backbone.Collection.extend({
     this.on('change',this.changeUser,this);
   },
   addUser : function(model) {
-    alert('welcome '+ model.get('user_id'));
+    alert(model.get('user_id'));
   },
   changeUser : function() {
     alert('Users are changed!');

@@ -1,6 +1,12 @@
 App = {
-  Models:{
+  Models: {
   },
-  Collections:{
+  Collections: {
+  },
+  Routes: {
+  },
+  Controllers: {
+  },
+  Views: {
   }
 }
