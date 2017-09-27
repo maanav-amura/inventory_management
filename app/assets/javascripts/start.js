@@ -1,9 +1,12 @@
 $( document ).ready(function() {
   var app = new Backbone.Marionette.Application();
   app.on('start', function() {
-    var productRouter = new ProductRouter();
-    var invoiceRouter = new InvoiceRouter();
-    var userRouter = new UserRouter();
+    new ProductRouter();
+    new InvoiceRouter();
+    new UserRouter();
+
+    // Changing idAttribute
+    Backbone.Model.prototype.idAttribute = "_id";
 
     Backbone.history.start({pushState: true});
   });
