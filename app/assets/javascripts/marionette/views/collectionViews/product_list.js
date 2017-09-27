@@ -1,3 +1,3 @@
 var ProductCollection = Marionette.CollectionView.extend({
-  childView: ProductIndex
+  childView: ProductItem
 });

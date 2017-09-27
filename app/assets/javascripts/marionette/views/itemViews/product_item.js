@@ -1,11 +1,11 @@
-var ProductIndex = Marionette.ItemView.extend({
+var ProductItem = Marionette.ItemView.extend({
   tagName: 'tr',
   events: {
     'click .show': 'productShow',
     'click .edit' : 'productEdit',
     'click .remove': 'productRemove'
   },
-  template: JST['product_index'],
+  template: JST['product_item'],
   serializeData: function() {
     return {
       'products' : this.model.attributes

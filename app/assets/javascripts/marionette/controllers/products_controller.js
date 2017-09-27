@@ -3,10 +3,8 @@ var ProductController = Marionette.Controller.extend({
     console.log('index');
     var products = new App.Collections.Products();
     products.fetch().done(function() {
-      console.log($('#user_type').data('id'));
-      var product_view = new ProductIndexLayout({collection: products});
+      var product_view = new ProductLayout({collection: products});
       $('body').html(product_view.render().$el);
-      // product_view.showChildView('list',new ProductIndex( {model: products} ) ); // on attach
     });
   },
   show: function() { console.log('show'); },

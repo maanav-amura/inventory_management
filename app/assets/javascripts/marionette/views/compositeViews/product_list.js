@@ -1,5 +1,5 @@
 var ProductComposite = Marionette.CompositeView.extend({
-  template: JST['product_composite'],
-  childView: ProductIndex,
+  template: JST['product_list'],
+  childView: ProductItem,
   childViewContainer: 'tbody'
 });
