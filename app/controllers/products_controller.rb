@@ -41,7 +41,10 @@ class ProductsController < ApplicationController
     @product = Product.where(id: params[:id]).first
     if @product.update_attributes(product_params)
       flash[:notice] = 'Product successfully updated!'
-      redirect_to(products_url)
+      respond_to do |format|
+        format.json { render json: @product }
+        format.html { redirect_to(products_url) }
+      end
     else
       if @product.errors.any?
         flash[:notice] = @product.errors.full_messages.join(', ')
@@ -58,16 +61,24 @@ class ProductsController < ApplicationController
         format.json { render json: 'deleted' }
         format.html
       end
-      # redirect_to action: 'index'
     end
   end
 
   def purchase
     @products = Product.available_products
+      respond_to do |format|
+      format.json { render json: @products }
+      format.html { render 'purchase' }
+    end
+
   end
 
   def confirm
     @product = Product.where(id: params[:id]).first
+    respond_to do |format|
+      format.json { render json: @product }
+      format.html { render 'confirm' }
+    end
   end
 
   def purchase_confirm
@@ -89,7 +100,10 @@ class ProductsController < ApplicationController
       @product.save
       flash[:notice] = 'Invoice Generated!'
     end
-    redirect_to '/products/purchase'
+    respond_to do |format|
+      format.json { render json: @product }
+      format.html { render '/products/purchase' }
+    end
   end
 
   private
