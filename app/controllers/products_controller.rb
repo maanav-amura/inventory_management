@@ -25,8 +25,12 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+
       flash[:notice] = 'Product successfully created!'
-      redirect_to(action: 'index')
+      respond_to do |format|
+      format.json { render json: @product }
+      format.html { render 'index' }
+    end
     else
       flash[:notice] = @product.errors.full_messages.join(', ') if @product.errors.any?
       render('new')

@@ -15,7 +15,11 @@ var ProductController = Marionette.Controller.extend({
       $('body').html(product_view.render().$el);
     });
   },
-  new: function() { console.log('new') },
+  new: function() {
+    console.log('new');
+    var product_view = new ProductNew();
+    $('body').html(product_view.render().$el);
+  },
   edit: function(id) {
    console.log('edit');
     product = new App.Models.Product({_id: id });
