@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :products do
     get 'purchase', on: :collection
     get 'confirm', on: :member
+    get 'search', on: :collection
     post '', action: 'purchase_confirm', on: :member
   end
   resources :invoices, only: %i[index show]

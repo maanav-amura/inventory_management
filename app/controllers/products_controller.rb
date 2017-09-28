@@ -110,6 +110,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search()
+    respond_to do |format|
+      @products = Product.where( { name: /^#{params['search']}/ } )
+      format.json { render json: @products }
+      format.html { 'index' }
+    end
+  end
+
   private
 
   def product_params
