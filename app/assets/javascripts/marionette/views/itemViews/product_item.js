@@ -9,12 +9,6 @@ var ProductItem = Marionette.ItemView.extend({
     'click .remove': 'productRemove'
   },
 
-  serializeData: function() {
-    return {
-      'products' : this.model.attributes
-    }
-  },
-
   productShow: function(e) {
     Backbone.history.navigate(`products/${$(e.currentTarget).data("id")}`, {trigger: true, replace: true});
   },
