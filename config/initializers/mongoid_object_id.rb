@@ -1,3 +1,8 @@
+#
+# Module BSON provides conversion from BSON ID to ID
+#
+# @author Maanav Shah <maanav@amuratech.com>
+#
 module BSON
   class ObjectId
     def to_json(*)

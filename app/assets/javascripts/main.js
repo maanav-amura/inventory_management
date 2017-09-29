@@ -1,3 +1,4 @@
+// Structure for javascript directory
 App = {
   Models: {
   },

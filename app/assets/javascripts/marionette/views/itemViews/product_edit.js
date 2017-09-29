@@ -1,3 +1,4 @@
+// Editing a single product model
 var ProductEdit = Marionette.ItemView.extend({
   template: JST['product_edit'],
   events: {

@@ -1,3 +1,8 @@
+#
+# Class User provides user information and base class for implementing single table inheritance (STI)
+#
+# @author Maanav Shah <maanav@amuratech.com>
+#
 class User
   include Mongoid::Document
   include Mongoid::Timestamps

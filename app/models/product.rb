@@ -1,3 +1,8 @@
+#
+# Class Product provides products information
+#
+# @author Maanav Shah <maanav@amuratech.com>
+#
 class Product
   include Mongoid::Document
   include Mongoid::Timestamps

@@ -1,3 +1,4 @@
+// Composite Views and Events
 var ProductList = Marionette.CompositeView.extend({
   template: JST['product_list'],
   childView: ProductItem,

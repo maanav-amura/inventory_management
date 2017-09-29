@@ -1,3 +1,8 @@
+#
+# Class ProductDetail provides details of products to embed with invoice bills
+#
+# @author Maanav Shah <maanav@amuratech.com>
+#
 class ProductDetail
   include Mongoid::Document
 

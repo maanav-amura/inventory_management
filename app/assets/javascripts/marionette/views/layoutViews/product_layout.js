@@ -1,3 +1,4 @@
+// Single Layout for Products CRUD
 var ProductLayout= Marionette.LayoutView.extend({
   template: JST['product_layout'],
   regions: {

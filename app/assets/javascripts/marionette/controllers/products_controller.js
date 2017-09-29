@@ -1,6 +1,7 @@
 var ProductController = Marionette.Controller.extend({
     index: function() {
     console.log('index');
+    console.log($('#user_type').data('id'));
     var products = new App.Collections.Products();
     products.fetch().done(function() {
       var product_view = new ProductLayout({collection: products});

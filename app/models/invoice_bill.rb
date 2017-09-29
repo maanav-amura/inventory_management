@@ -1,3 +1,8 @@
+#
+# Class InvoiceBill provides invoices for users with embedded products
+#
+# @author Maanav Shah <maanav@amuratech.com>
+#
 class InvoiceBill
   include Mongoid::Document
   include Mongoid::Timestamps

@@ -1,3 +1,4 @@
+/// Creating a new single product model
 var ProductNew = Marionette.ItemView.extend({
   template: JST['product_new'],
   events: {

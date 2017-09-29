@@ -1,3 +1,8 @@
+#
+# Class Factory provides model for factory
+#
+# @author Maanav Shah <maanav@amuratech.com>
+#
 class Factory
   include Mongoid::Document
   include Mongoid::Timestamps

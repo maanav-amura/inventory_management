@@ -1,3 +1,4 @@
+// Displaying a single product model
 var ProductItem = Marionette.ItemView.extend({
   template: JST['product_item'],
 
