@@ -10,10 +10,10 @@
   </tr>
   <tr>
     <td><%= @bill.id %></td>
-    <td><%= @name.capitalize %></td>
+    <td><%= @bill.product_details.map { |p| p.name.capitalize }.join %></td>
     <td><%= @user.capitalize %></td>
-    <td><%= @price %></td>
-    <td><%= @quantity %></td>
+    <td><%= @bill.total_price %></td>
+    <td><%= @bill.product_details.map { |p| p.quantity }.join %></td>
   </tr>
 </table>
 

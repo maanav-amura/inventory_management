@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'users' }
+  devise_scope :user do
+    root to: 'devise/sessions#new'
+  end
 
-  devise_for :users, :controllers => { :registrations => 'users' }
   resources :products do
     get 'purchase', on: :collection
+    get 'confirm', on: :member
+    get 'search', on: :collection
+    post '', action: 'purchase_confirm', on: :member
   end
-  get 'products/:id/purchase', to: 'products#confirm'
-  post 'products/:id', to: 'products#purchase_confirm'
-  resources :invoices, only: [:index, :show]
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :invoices, only: %i[index show]
 end

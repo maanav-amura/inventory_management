@@ -1,6 +1,16 @@
+#
+# Class Ability provides ability and authozization for managers and buyers
+#
+# @author Maanav Shah <maanav@amuratech.com>
+#
 class Ability
   include CanCan::Ability
 
+  #
+  # defines the ability for users and admins
+  #
+  # @param [<type>] user <description>
+  #
   def initialize(user)
     user ||= User.new
     alias_action :create, :read, :update, :destroy, to: :crud

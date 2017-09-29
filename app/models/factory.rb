@@ -1,7 +1,17 @@
-class Factory < ApplicationRecord
-  validates :name, presence: true
+#
+# Class Factory provides model for factory
+#
+# @author Maanav Shah <maanav@amuratech.com>
+#
+class Factory
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  field :name
+  field :city
 
   has_many :users
   has_many :products
-  has_one :factory_manager, class_name: 'User::Manager::FactoryManager'
+
+  validates :name, presence: true, uniqueness: true
 end
