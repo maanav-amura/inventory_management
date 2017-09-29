@@ -21,31 +21,30 @@
     * InventoryManager
     * SalesManager
 * Product
+* Product Details
 * InvoiceBill
-* InvoiceDetail
 
 ### Tables
 
 * factories
 * users
 * products
-* products_users
 * invoice_bills
-* invoice_details
 
 ### Associations
 
-_one-to-one_
-* Factory - FactoryManager
-
 _one-to_many_
 * Factory - User
-* User - Manager
-* User - Buyer
-* User - InvoiceBill
+* Factory - Product
+* User - Invoice Bill
 
-_many-to_many_
-* Manager - Product
-* InvoiceBill - Product, through => InvoiceDetail
+_embeds-many_
+* Product Details - User
 
-Bootstrap :: https://stackoverflow.com/questions/18371318/installing-bootstrap-3-on-rails-app
+### Gems Functionality
+* Devise
+* CanCanCan
+* FactoryGirl
+* Rspec
+* SimpleCov
+* Faker
