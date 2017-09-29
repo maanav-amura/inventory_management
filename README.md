@@ -12,38 +12,39 @@
 
 * Factory
 * User
- * Buyer
-   * Customer
-   * Shopkeeper
-   * Vendor
- * Manager
-  * FactoryManager
-  * InventoryManager
-  * SalesManager
+  * Buyer
+    * Customer
+    * Shopkeeper
+    * Vendor
+  * Manager
+    * FactoryManager
+    * InventoryManager
+    * SalesManager
 * Product
+* Product Details
 * InvoiceBill
-* InvoiceDetail
 
 ### Tables
 
 * factories
 * users
 * products
-* products_users
 * invoice_bills
-* invoice_details
 
 ### Associations
 
-_one-to-one_
-* Factory - FactoryManager
-
 _one-to_many_
 * Factory - User
-* User - Manager
-* User - Buyer
-* User - InvoiceBill
+* Factory - Product
+* User - Invoice Bill
 
-_many-to_many_
-* Manager - Product
-* InvoiceBill - Product, through => InvoiceDetail
+_embeds-many_
+* Product Details - User
+
+### Gems Functionality
+* Devise
+* CanCanCan
+* FactoryGirl
+* Rspec
+* SimpleCov
+* Faker
