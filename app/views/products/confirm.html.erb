@@ -1,0 +1,19 @@
+<h1>Confirm Purchase</h1>
+<br>
+<%= form_for :product_detail, url: {action: "purchase_confirm"}, method: :post do |f| %>
+<table class="table table-hover" style="width:60%">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+  <tr>
+    <td><%= @product.name.capitalize %></td>
+    <td><%= @product.price %></td>
+    <td><%= f.text_field :quantity %></td>
+  </tr>
+</table>
+<br>
+<%= f.submit "Confirm Purchase" %>
+<% end %>
+<%= link_to('Back', action: 'purchase')%>

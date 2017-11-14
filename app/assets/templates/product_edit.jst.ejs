@@ -1,0 +1,34 @@
+<table class="table table-hover">
+  <tr>
+    <td>Name</td>
+    <td>
+      <input type="text" id="name" value='<%= name %>'>
+    </td>
+  </tr>
+    <td>Capacity</td>
+    <td>
+      <input type="number" id="capacity" value='<%= capacity %>'>
+    </td>
+  </tr>
+    <td>Price</td>
+    <td>
+      <input type="number" id="price" value='<%= price %>'>
+    </td>
+  </tr>
+    <td>Status</td>
+    <td>
+      <select id='available'>
+        <option value="true">Available</option>
+        <option value="false available">Unavailable</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input class='edit' type="submit" value= "Edit Product">
+    </td>
+    <td>
+      <input class='back' type="button" value= "Back">
+    </td>
+    </tr>
+</table>

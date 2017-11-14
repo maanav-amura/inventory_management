@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InventoryManagement</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <br>
+    <div align="right" style="margin-right: 40px">
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path)  %>
+    <% end %>
+    </div>
+
+    <div id="user_type" data-id='<% if current_user.is_a?(User::Manager::FactoryManager) %>FactoryManager<% elsif current_user.is_a?(User::Manager::InventoryManager) %>InventoryManager<% elsif current_user.is_a?(User::Manager::SalesManager) %>SalesManager<% else %>Buyer<% end %>'>
+    </div>
+
+
+    <div align="center">
+
+      <% flash.each do |key, value| %>
+        <%= value %>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<h1>Invoices</h1>
+<br>
+<table class="table table-hover" style="width: 60%">
+  <tr>
+    <th>InvoiceNo</th>
+    <th>Total Price</th>
+    <th>Product</th>
+    <th>Show</th>
+  </tr>
+  <% @bills.each_with_index do |b, index| %>
+    <tr>
+      <td><%= b.id %></td>
+      <td><%= b.total_price %></td>
+      <td><%= b.product_details.map {|product| product.name.capitalize }.join %></td>
+      <td><%= link_to 'Show', invoice_path(b.id) %></td>
+    </tr>
+  <% end %>
+</table>
+<% if current_user.is_a?(User::Buyer) %>
+  <%= link_to 'Purchase Products', controller: 'products', action: 'purchase' %>
+<% else %>
+<%= link_to 'Back', controller: 'products', action: 'index' %>
+<% end %>

@@ -1,0 +1,31 @@
+<h1>Products</h1>
+<% if current_user.is_a?(User::Manager::FactoryManager) %>
+  <%= link_to('Create Product', :action=>'new')%><br>
+<% end %>
+  <table class="table table-hover" style="width: 60%">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Capacity</th>
+      <th>Available</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <% if current_user.is_a?(User::Manager::FactoryManager) %>
+        <th>Remove</th>
+      <% end %>
+    </tr>
+  <% @products.each do |p| %>
+    <tr>
+      <td><%= p.name.capitalize %></td>
+      <td><%= p.price %></td>
+      <td><%= p.capacity %></td>
+      <td><%= p.available ? 'Yes' : 'No' %></td>
+      <td><%= link_to 'Show', product_path(p.id) %></td>
+      <td><%= link_to 'Edit', edit_product_path(p.id) %></td>
+      <% if current_user.is_a?(User::Manager::FactoryManager) %>
+        <td><%= link_to 'Remove', product_path(p.id), method: :delete %></td>
+      <% end %>
+    </tr><br>
+  <% end %>
+</table>
+<%= link_to 'Check Invoices', controller: 'invoices', action: 'index' %>

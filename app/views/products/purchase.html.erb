@@ -1,0 +1,21 @@
+<h1>Purchase Products</h1><br>
+<table class="table table-hover" style="width: 50%">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Available</th>
+  </tr> q
+  <% @products.each do |p| %>
+  <tr>
+    <td><%= p.name.capitalize %></td>
+    <td><%= p.price %></td>
+    <td><%= p.capacity %></td>
+     <td><% if p.capacity==0 %>
+      <%= link_to 'Notify', "" %>
+     <% else %>
+      <%= link_to 'Purchase', confirm_product_path(p.id) %>
+    <% end %></td>
+  </tr>
+  <% end %>
+</table>
+<%= link_to 'Check Invoices', controller: 'invoices', action: 'index' %>
